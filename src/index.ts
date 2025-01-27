@@ -1,13 +1,10 @@
 import express, { json, Request, Response } from 'express';
+import taksRouter from './routes/tasks.routes';
 
 const app = express();
 app.use(json());
 
-app.get('/', (req: Request, res: Response) => {
-    res.status(200).json({
-        ok: true
-    })
-});
+app.use('/tasks', taksRouter);
 
 app.listen(4444, () => {
     console.log('app is running');
